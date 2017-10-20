@@ -15,9 +15,9 @@ public:
 	void Reset();
 	std::string RenderBoardToString() const;
 private:
-	constexpr static unsigned short EMPTY_SPACE = 0;
-	constexpr static unsigned short PLAYER_1 = 1;
-	constexpr static unsigned short PLAYER_2 = 2;
+	constexpr static int EMPTY_SPACE = 0;
+	constexpr static int PLAYER_1 = 1;
+	constexpr static int PLAYER_2 = 2;
 
 	int columns;
 	int rows;

@@ -37,7 +37,7 @@ void ConnectFourGame::ZeroFillGameBoard()
 {
 	for (int i = 0; i < columns; i++)
 	{
-		memset(this->gameBoard[i], 0, rows * sizeof(int));
+		memset(this->gameBoard[i], EMPTY_SPACE, rows * sizeof(int));
 	}
 }
 
@@ -49,7 +49,7 @@ bool ConnectFourGame::IsWon() const
 
 bool ConnectFourGame::HasValidMoves() const
 {
-	return hasValidMoves;
+	return this->hasValidMoves;
 }
 
 
@@ -77,7 +77,7 @@ void ConnectFourGame::MakeMove(int column)
 	int y;
 	for (int i = 0; i < rows; i++)
 	{
-		if (this->gameBoard[column][i] == 0)
+		if (this->gameBoard[column][i] == EMPTY_SPACE)
 		{
 			y = i;
 			break;
@@ -197,16 +197,16 @@ void ConnectFourGame::CountMatch(int x, int y, int &counter)
 
 void ConnectFourGame::CheckHasValidMoves()
 {
-	bool localHasValidMoves = false;
 	int y = rows - 1;
 	for (int x = 0; x < columns; x++)
 	{
 		if (this->gameBoard[x][y] == EMPTY_SPACE)
 		{
-			localHasValidMoves = true;
+			this->hasValidMoves = true;
+			return;
 		}
 	}
-	this->hasValidMoves = localHasValidMoves;
+	this->hasValidMoves = false;
 }
 
 
