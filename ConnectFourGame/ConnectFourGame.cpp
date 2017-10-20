@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "ConnectFourGame.h"
-#include <algorithm>
-#include <iterator>
-
 
 ConnectFourGame::ConnectFourGame(int columns, int rows)
 {
