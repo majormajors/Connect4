@@ -126,8 +126,7 @@ bool ConnectFourGame::CheckVertically(int x, int y1, int y2) const
 	int matches = 0;
 	for (int y = y1; y <= y2; y++)
 	{
-		CountMatch(x, y, matches);
-		if (matches > 3)
+		if (CountMatchAndCheckWinCondition(x, y, matches))
 		{
 			return true;
 		}
@@ -141,8 +140,7 @@ bool ConnectFourGame::CheckHorizontally(int y, int x1, int x2) const
 	int matches = 0;
 	for (int x = x1; x <= x2; x++)
 	{
-		CountMatch(x, y, matches);
-		if (matches > 3)
+		if (CountMatchAndCheckWinCondition(x, y, matches))
 		{
 			return true;
 		}
@@ -158,8 +156,7 @@ bool ConnectFourGame::CheckDiagonally(int x1, int x2, int y1, int y2) const
 	int y = y1;
 	while (x <= x2 && y <= y2)
 	{
-		CountMatch(x, y, matches);
-		if (matches > 3)
+		if (CountMatchAndCheckWinCondition(x, y, matches))
 		{
 			return true;
 		}
@@ -169,8 +166,7 @@ bool ConnectFourGame::CheckDiagonally(int x1, int x2, int y1, int y2) const
 	matches = 0;
 	while (x <= x2 && y >= y1)
 	{
-		CountMatch(x, y, matches);
-		if (matches > 3)
+		if (CountMatchAndCheckWinCondition(x, y, matches))
 		{
 			return true;
 		}
@@ -179,7 +175,7 @@ bool ConnectFourGame::CheckDiagonally(int x1, int x2, int y1, int y2) const
 	return false;
 }
 
-void ConnectFourGame::CountMatch(int x, int y, int &counter) const
+bool ConnectFourGame::CountMatchAndCheckWinCondition(int x, int y, int &counter) const
 {
 	if (this->gameBoard[x][y] == GetCurrentPlayer())
 	{
@@ -189,6 +185,7 @@ void ConnectFourGame::CountMatch(int x, int y, int &counter) const
 	{
 		counter = 0;
 	}
+	return counter == WIN_CONDITION;
 }
 
 

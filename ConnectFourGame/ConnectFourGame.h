@@ -16,6 +16,7 @@ private:
 	constexpr static int EMPTY_SPACE = 0;
 	constexpr static int PLAYER_1 = 1;
 	constexpr static int PLAYER_2 = 2;
+	constexpr static int WIN_CONDITION = 4;
 
 	int columns;
 	int rows;
@@ -32,5 +33,5 @@ private:
 	bool CheckVertically(int x, int y1, int y2) const;
 	bool CheckHorizontally(int y, int x1, int x2) const;
 	bool CheckDiagonally(int x1, int x2, int y1, int y2) const;
-	void CountMatch(int x, int y, int &counter) const;
+	bool CountMatchAndCheckWinCondition(int x, int y, int &counter) const;
 };
