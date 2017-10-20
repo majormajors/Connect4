@@ -30,7 +30,7 @@ void ConnectFourGame::InitGameBoard()
 	}
 }
 
-void ConnectFourGame::ZeroFillGameBoard()
+void ConnectFourGame::ZeroFillGameBoard() const
 {
 	for (int i = 0; i < columns; i++)
 	{
@@ -121,7 +121,7 @@ void ConnectFourGame::CheckGameWon(int x, int y)
 	}
 }
 
-bool ConnectFourGame::CheckVertically(int x, int y1, int y2)
+bool ConnectFourGame::CheckVertically(int x, int y1, int y2) const
 {
 	int matches = 0;
 	for (int y = y1; y <= y2; y++)
@@ -136,7 +136,7 @@ bool ConnectFourGame::CheckVertically(int x, int y1, int y2)
 	return false;
 }
 
-bool ConnectFourGame::CheckHorizontally(int y, int x1, int x2)
+bool ConnectFourGame::CheckHorizontally(int y, int x1, int x2) const
 {
 	int matches = 0;
 	for (int x = x1; x <= x2; x++)
@@ -150,7 +150,7 @@ bool ConnectFourGame::CheckHorizontally(int y, int x1, int x2)
 	return false;
 }
 
-bool ConnectFourGame::CheckDiagonally(int x1, int x2, int y1, int y2)
+bool ConnectFourGame::CheckDiagonally(int x1, int x2, int y1, int y2) const
 {
 	int matches = 0;
 
@@ -179,7 +179,7 @@ bool ConnectFourGame::CheckDiagonally(int x1, int x2, int y1, int y2)
 	return false;
 }
 
-void ConnectFourGame::CountMatch(int x, int y, int &counter)
+void ConnectFourGame::CountMatch(int x, int y, int &counter) const
 {
 	if (this->gameBoard[x][y] == GetCurrentPlayer())
 	{

@@ -25,12 +25,12 @@ private:
 	bool hasValidMoves;
 
 	void InitGameBoard();
-	void ZeroFillGameBoard();
+	void ZeroFillGameBoard() const;
 	void CheckGameWon(int x, int y);
 	void CheckHasValidMoves();
 
-	bool CheckVertically(int x, int y1, int y2);
-	bool CheckHorizontally(int y, int x1, int x2);
-	bool CheckDiagonally(int x1, int x2, int y1, int y2);
-	void CountMatch(int x, int y, int &counter);
+	bool CheckVertically(int x, int y1, int y2) const;
+	bool CheckHorizontally(int y, int x1, int x2) const;
+	bool CheckDiagonally(int x1, int x2, int y1, int y2) const;
+	void CountMatch(int x, int y, int &counter) const;
 };
